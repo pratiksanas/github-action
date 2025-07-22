@@ -7,18 +7,16 @@ on:
 jobs:
   task1:
     runs-on: ubuntu-latest
-    # outputs:
-    #   output1: ${{ steps.artifact-upload-step.outputs.artifact-id }}
     steps:
       - name: Create file
         run: |
-          echo "This file was created in Job 5." > shared-file.txt
+          echo "This file was created in Job 6." > shared-file-1.txt
 
       - uses: actions/upload-artifact@v4
         id: artifact-upload-step
         with:
           name: my-artifact
-          path: shared-file.txt
+          path: shared-file-1.txt
   task2:
     runs-on: ubuntu-latest
     needs: task1
@@ -29,6 +27,4 @@ jobs:
           name: my-artifact
 
       - name: read the file
-        run: cat shared-file.txt
-        # env:
-        #   OUTPUT1: ${{needs.task1.outputs.output1}}
+        run: cat shared-file-1.txt
