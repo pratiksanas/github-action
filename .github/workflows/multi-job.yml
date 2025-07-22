@@ -8,7 +8,7 @@ jobs:
   create_file:
     runs-on: ubuntu-latest
     outputs:
-      artifact-name: ${{ steps.output.outputs.artifact }}
+      artifact-name: abc
     steps:
       - name: Create file
         run: |
