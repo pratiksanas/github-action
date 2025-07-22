@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: task1
     steps:
-      - run: cat shared-file.txt
+      - name: read the file
+        run: cat shared-file.txt
         env:
           OUTPUT1: ${{needs.task1.outputs.output1}}
-        run: echo "Artifact ID from previous job is $OUTPUT1"
