@@ -1,0 +1,15 @@
+name: Local Env Test
+
+on: [push]
+
+jobs:
+  test-local-env:
+    runs-on: ubuntu-latest
+    env:
+      ENV_MODE: "local"
+      DB_URL: "localhost:5432"
+    steps:
+      - name: Print Environment Variables
+        run: |
+          echo "ENV_MODE=$ENV_MODE"
+          echo "DB_URL=$DB_URL"
