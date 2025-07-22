@@ -2,23 +2,21 @@ name: Test Multi-Job
 
 on:
   push:
-    branches: [ main ]
+    branches: main
 
 jobs:
   create_file:
     runs-on: ubuntu-latest
-    outputs:
-      artifact-name: abc
     steps:
       - name: Create file
         run: |
-          echo "This file was created in Job 2." > shared-file.txt
+          echo "This file was created in Job 3." > shared-file.txt
 
       - name: Upload file as artifact
         uses: actions/upload-artifact@v4
         with:
           name: shared-artifact
-          path: shared-file.txt
+          path: shared-file1.txt
 
   read_file:
     needs: create_file
@@ -32,4 +30,4 @@ jobs:
       - name: Show file content
         run: |
           echo "Reading content from shared-file.txt:"
-          cat shared-file.txt
+          cat shared-file1.txt
