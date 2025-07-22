@@ -7,12 +7,12 @@ on:
 jobs:
   task1:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.artifact-upload-step.outputs.artifact-id }}
+    # outputs:
+    #   output1: ${{ steps.artifact-upload-step.outputs.artifact-id }}
     steps:
       - name: Create file
         run: |
-          echo "This file was created in Job 4." > shared-file.txt
+          echo "This file was created in Job 5." > shared-file.txt
 
       - uses: actions/upload-artifact@v4
         id: artifact-upload-step
