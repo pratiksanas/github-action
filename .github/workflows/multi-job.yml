@@ -8,11 +8,11 @@ jobs:
   create_file:
     runs-on: ubuntu-latest
     outputs:
-      artifact-name: ${{ steps.set-output.outputs.artifact }}
+      artifact-name: ${{ steps.output.outputs.artifact }}
     steps:
       - name: Create file
         run: |
-          echo "This file was created in Job 1." > shared-file.txt
+          echo "This file was created in Job 2." > shared-file.txt
 
       - name: Upload file as artifact
         uses: actions/upload-artifact@v4
